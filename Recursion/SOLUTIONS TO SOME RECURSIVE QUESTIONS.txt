@@ -1,0 +1,84 @@
+SOLUTIONS PART 1
+---------------------------------
+POWER SOLUTION
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    return base * power(base, exponent-1)
+------------------------------------------
+FACTORIAL SOLUTION
+def factorial(num):
+    if num <= 1:
+        return 1
+    return num * factorial(num-1)
+--------------------------------------------------
+PRODUCT OF ARRAY SOLUTION
+def productOfArray(arr):
+    if len(arr) == 0:
+        return 1
+    return arr[0] * productOfArray(arr[1:])
+--------------------------------------------------
+RECURSIVE RANGE SOLUTION
+def recursiveRange(num):
+    if num <= 0:
+        return 0
+    return num + recursiveRange(num - 1)
+-----------------------------------------------------
+FIBONACCI SOLUTION
+def fib(num):
+    if (num < 2):
+        return num
+    return fib(num - 1) + fib(num - 2)
+---------------------------------------------------------
+REVERSE A STRING
+def reverse(strng):
+    leng=len(strng)-1
+    if leng==0:
+        return strng[0]
+    else:
+        lengg=leng-1
+        return strng[leng]+reverse(strng[0:leng])
+print(reverse("hello"))
+
+===========================================================================================
+
+SOLUTIONS PART 2
+--------------
+REVERSE SOLUTION
+def reverse(strng):
+    if len(strng) <= 1:
+      return strng
+    return strng[len(strng)-1] + reverse(strng[0:len(strng)-1])
+-------------------------------------------------------------------------------
+IS PALINDROME SOLUTION
+def isPalindrome(strng):
+    if len(strng) == 0:
+        return True
+    if strng[0] != strng[len(strng)-1]:
+        return False
+    return isPalindrome(strng[1:-1])
+--------------------------------------------------------------------------------
+SOME RECURSIVE SOLUTION
+def someRecursive(arr, cb):
+    if len(arr) == 0:
+        return False
+    if not(cb(arr[0])):
+        return someRecursive(arr[1:], cb)
+    return True
+ 
+def isOdd(num):
+    if num%2==0:
+        return False
+    else:
+        return True
+-----------------------------------------------------------------------------------
+FLATTEN SOLUTION
+def flatten(arr):
+    resultArr = []
+    for custItem in arr:
+        if type(custItem) is list:
+            resultArr.extend(flatten(custItem))
+        else: 
+            resultArr.append(custItem)
+    return resultArr 
+--------------------------------------------------------------------------------------
