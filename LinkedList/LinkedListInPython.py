@@ -60,9 +60,7 @@ class LinkedList:
         if self.length<1:
             print("Empty is the linked list")
         elif self.length == 1:
-            self.head=None
-            self.tail=None
-            self.length-=1
+            print("Only One element in a linked list, and the list cannot be empty")
         else:
             newHead=self.head.next
             self.head=None
@@ -102,7 +100,11 @@ class LinkedList:
                 i+=1
             nav.next=None
             self.tail=nav
-            
+    #Delete entire Linked list
+    def deleteEntire(self):
+        self.head.next=None     
+        self.tail=self.head
+        print(self.getHead().data," ",self.getTail().data)
 
 n1=Node(10)
 n2=Node(20)
@@ -110,14 +112,8 @@ n3=Node(30)
 n4=Node(40)
 n5=Node(50)
 link=LinkedList(n1)
-link.addNode(n2)
-link.addNode(n3)
-link.addNode(n4)
-link.addNodeAt(n5,2)
-link.addFirst(Node(12))
-link.display()
 print(link.searchIn(12))
 print("Deleting")
 link.deleteLast()
 link.display()
-print("Head: ",link.getHead().data," while tail: ",link.getTail().data)
+link.deleteEntire()
