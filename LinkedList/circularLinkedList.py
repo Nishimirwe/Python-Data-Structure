@@ -111,8 +111,10 @@ class doubleLinkedList:
         if self.head is None:
             print("The list has no node")
         elif self.head==self.tail:
+            self.head.next=None
             self.head=None
             self.tail=None
+
             self.length-=1
         else:
             newHead=self.head.next
@@ -125,6 +127,7 @@ class doubleLinkedList:
         if self.head is None:
             print("The linked List is Empty")
         elif self.head==self.tail:
+            self.head.next=None
             self.head=None
             self.tail=None
             self.length-=1
@@ -169,4 +172,6 @@ dl.addFirst(n4)
 dl.insert(n5,2)
 dl.insert(n6,5)
 dl.display()
+dl.deleteLast()
 dl.display()
+print(dl.getNextOf(n2),dl.getNextOf(n6))
