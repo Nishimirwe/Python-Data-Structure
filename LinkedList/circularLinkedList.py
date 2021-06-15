@@ -78,14 +78,20 @@ class doubleLinkedList:
     
     #Return next of a node
     def getNextOf(self, node):
+        if self.head is None:
+            return "The linked list is empty"
         return node.next.data
 
     #return the head of Linked List
     def getHead(self):
+        if self.head is None:
+            return "The linked list is empty"
         return self.head.data
 
     #return the tail of Linked List
     def getTail(self):
+        if self.head is None:
+            return "The linked list is empty"
         return self.tail.data
     
     #Return the size of Linked List
@@ -149,15 +155,24 @@ class doubleLinkedList:
             self.deleteLast()
         elif location==self.length:
             self.deleteLast()
-        else:
+        elif self.head is not None:
             i=1
             nav=self.head
             while i<location-1:
                 nav=nav.next
                 i+=1
             nav.next=nav.next.next
-             
+        else:
+            print("Empty Linked list")
 
+    #Delete entire Linked list
+    def deleteEntire(self):
+        self.head.next=None
+        self.tail.next=None
+        self.head=None
+        self.tail=None
+        self.length=0
+            
 dl=doubleLinkedList()
 n1=Node(10)
 n2=Node(90)
@@ -168,10 +183,6 @@ n6=Node(200)
 dl.addLast(n1)
 dl.addLast(n2)
 dl.addLast(n3)
-dl.addFirst(n4)
-dl.insert(n5,2)
-dl.insert(n6,5)
+dl.addLast(n4)
+dl.addLast(n5)
 dl.display()
-dl.deleteLast()
-dl.display()
-print(dl.getNextOf(n2),dl.getNextOf(n6))
