@@ -47,6 +47,9 @@ class Stack:
                 nav=nav.Next
             print()
             print("Size: ",self.s," Head: ", self.Head.data)
+    #Delete
+    def delete(self):
+         self.Head=None
 
 st=Stack()
 st.push(10)
