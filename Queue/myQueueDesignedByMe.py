@@ -18,25 +18,39 @@ class Queue:
 
     #def pop()
     def pop(self):
-        x=self.li[self.min]
-        self.li[self.min]=self.reset
-        self.min+=1
-        return x
+        if not self.isEmpty():
+            x=self.li[self.min]
+            self.li[self.min]=self.reset
+            self.min+=1
+            return x
+        return "Empty List", -1
 
     #def front
     def front(self):
-        return self.li[self.min]
+        if not self.isEmpty():
+            return self.li[self.min]
+        return "Empty List", -1
     
     #back element
     def back(self):
-        return self.li[self.s]
+        if not self.isEmpty():
+            return self.li[self.s]
+        return "Empty List", -1
 
     #diplay()
     def display(self):
-        for i in range(self.min,self.s+1):
-            print(self.li[i],"::",end='')
-        print()
-        print("Size: ",self.s+1-self.min)
+        if not self.isEmpty():
+            for i in range(self.min,self.s+1):
+                print(self.li[i],"::",end='')
+            print()
+            print("Size: ",self.s+1-self.min)
+        else:
+            print("Empty List")
+    #Destroy
+    def destroy(self):
+        self.min=0
+        self.s=-1
+        self.li.clear()
 
 q=Queue()
 q.push(12)
@@ -45,5 +59,8 @@ q.push(20)
 q.push(25)
 q.push(30)
 q.display()
+q.destroy()
+q.push(30)
+q.push(25)
 print("Pop: ",q.pop()," Front: ",q.front()," Back: ",q.back())
 q.display()
