@@ -5,6 +5,12 @@ class Queue:
         self.min=0
         self.reset=-1010
 
+    #def isEmpty
+    def isEmpty(self):
+        if self.min > self.s:
+            return True
+        return False
+
     #def push
     def push(self,value):
         self.s+=1
