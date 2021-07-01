@@ -219,6 +219,30 @@ class Tree:
             print("End")
         print()
 
+    def search(self,value): # searching a value in a tree
+        if not self.root:
+            return False,"empty"
+        else:
+            q=queue()
+            q.push(self.root)
+            while not q.isEmpty() and q.getFront():
+                t=q.getFront().data
+                if t.data==value:
+                    return True,t.data
+                elif t.left and t.right:
+                    q.push(t.left)
+                    q.push(t.right)
+                    q.pop()
+                elif t.left and not t.right:
+                    print(t.data)
+                    q.push(t.left)
+                    q.pop()
+                elif not t.left and t.right:
+                    q.push(t.right)
+                    q.pop()
+                else:
+                    q.pop()
+            return False,"We ended and did not find it"
 
 tr=Tree()
 tr.addLeaf(1)
@@ -247,4 +271,7 @@ print()
 print()
 print("Level Order: ")
 tr.levelOrder()
+print()
+print()
+print(tr.search(60))
 
