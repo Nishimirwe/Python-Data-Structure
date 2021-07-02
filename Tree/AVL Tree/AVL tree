@@ -1,0 +1,3 @@
+This is a binary tree wichi is always balanced so that time complexity will always be O(log n).
+
+Every time we insert a new leaf, we check whether the tree is balanced then leave it balanced
