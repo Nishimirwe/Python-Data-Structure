@@ -51,15 +51,27 @@ class HashTable:
         else:
             index=self.hash(str)
             if self.strs[index]==str:
-                return str," is successfully found at index ",index
+                return index
             else:
                 i=index
                 while self.strs[index%self.capacity]!=str:
                     index+=1
                     if index%self.capacity==i:
-                        return str," could not be found, we are already truning back to the start", i
+                        return -1
                 index=index%self.capacity
-                return str," is successfully found at index ",index
+                return index
+
+    def delete(self,str):
+        if self.isEmpty():
+            return "Empty Hash Table"
+        index=self.search(str)
+        if index==-1:
+            return "That value does not exist"
+        x=self.strs[index]
+        self.strs[index]=None
+        self.length[index]-=1
+        return x
+
 
 
 ht=HashTable(5)
@@ -68,6 +80,8 @@ ht.add("MWIZERWA")
 ht.add("YVES")
 ht.add("RASHID")
 ht.add("MAMA")
+print(ht.delete("MWIZERWA")," is deleted from Hash Table")
+ht.add("PAPA")
 ht.show()
-print("Searching methods")
-print(ht.search("MWIZERWA"))
+#print("Searching methods")
+#print(ht.search("MWIZERWA"))
