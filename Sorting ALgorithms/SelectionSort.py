@@ -1,7 +1,8 @@
 #selection sort, it require other array
 #we search minimum element in an array and take it in another array
 # At the end, the second array will be sorted if first is empty
-
+# Time complexity O(n2) , because built-in min() use O(n)
+#Space complexity O(1)
 def findMin(li): #My function to find the Minimum element in an array, but I did not use it in this selection sort, I used in-bulit python list
     m=li[0]
     for i in range(1,len(li)):
