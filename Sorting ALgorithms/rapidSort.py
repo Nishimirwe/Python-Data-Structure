@@ -1,3 +1,5 @@
+#This algorithm saves tha value at the index=value
+# It might use large space because lenght of array should be equal maybe (min+max+1)*2 worst case, when some numbers are less than zero
 def mySort(li,mi,ma):
     size=((ma-mi)+1)
     arr=[None]*size
