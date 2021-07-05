@@ -1,6 +1,7 @@
 #In insertiokn sorting algorithm, we move through out an array
 #put it in its appropriate place.
-
+# Time complexity O(n2)
+#Space complexity O(1)
 def insertion(li):
     for j in range(len(li)):
         t=j-1
