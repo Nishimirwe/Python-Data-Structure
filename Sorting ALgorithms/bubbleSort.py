@@ -1,3 +1,4 @@
+#This algorithm use loops to sort data, and its time complexity is O(n2)
 def sort(li):
     for i in range(len(li)-1):
         for j in range(i+1,len(li)):
