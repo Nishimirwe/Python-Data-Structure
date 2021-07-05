@@ -131,7 +131,7 @@ class Graph:
     def DFS(self,r): #Logic used a stack
         self.visited[r]=True
         self.stk.push(r)
-        print(r)
+        print(r,end=' ')
         for i in self.connection[self.stk.pop()]:
             if not i in self.visited.keys():
                 self.stk.push(i)
@@ -161,14 +161,15 @@ class Graph:
         
 
 g=Graph()
-g.add(4,8)
-g.add(4,7)
-g.add(8,10)
-g.add(8,14)
-g.add(7,10)
-g.add(7,15)
-g.add(10,11)
-g.add(14,20)
-g.DFS(4)
+g.add("A","B")
+g.add("A","C")
+g.add("C","E")
+g.add("B","E")
+g.add("E","D")
+g.add("D","B")
+g.add("F","E")
+g.add("D","F")
+g.DFS("A")
+print()
 print("Are They Connected together? ",g.areTheyConnected())
-g.BFS(20)
+g.BFS("C")
